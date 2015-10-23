@@ -25,13 +25,17 @@ bool LoadingScene::init()
 	{
 		return false;
 	}
-	PrepareProgressBar();
-	LoadRes();
+	this->PrepareProgressBar();
+	this->LoadRes();
 	return true;
 }
 
 void LoadingScene::PrepareProgressBar()
 {
+	this->_progressBar=ProgressTimer::create(Sprite::create("loadBar.png"));
+	this->_progressBar->setType(ProgressTimerType::BAR);
+	this->_progressBar->setMidpoint(Vec2(0,0));
+	//this->_progressBar->setBarChangeRate(Vec2(1,));
 	/*Size size = Director::getInstance()->getWinSize();
 	auto progressBarBg = Sprite::create("load.png");
 	progressBarBg->setPosition(Point(size.width / 2,  size.height / 2 ));  
